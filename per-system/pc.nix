@@ -4,7 +4,6 @@
     ../services/printing.nix
     ../services/networking.nix
     ../services/tor.nix
-    ../services/dae.nix
     ../media/niri.nix
   ];
 #  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
@@ -30,9 +29,7 @@
   }; */
   system.stateVersion = "24.05";
 
-  swapDevices = [{
-    device = "/swapfile";
-  }];
+  swapDevices = [ ];
 
 
 #  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
@@ -56,7 +53,6 @@
          "$@"
      '')
 #    cloudflared
-    jetbrains.idea-community
     sshfs
     eww
     config.boot.kernelPackages.perf

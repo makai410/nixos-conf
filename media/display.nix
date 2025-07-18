@@ -8,7 +8,6 @@
   services.xserver = {
     enable = true;
     xkb = {
-      variant = "colemak";
       layout = "us";
     };
     # displayManager.sddm.enable = true;

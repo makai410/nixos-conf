@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   nix.settings = {
-    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
     trusted-users = [
       "root"
       "@wheel"
@@ -13,7 +12,6 @@
     ./media/sound.nix
     ./media/display.nix
     ./services/input.nix
-    ./services/dae.nix
     ./services/kdeconnect.nix
     ./services/networking.nix
   ];
@@ -172,7 +170,7 @@
     enable = true;
     #clean.enable = true;
     #clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/makai/develop/nixos-config";
+    flake = "/home/makai/develop/nixos-conf";
   };
   hardware.opentabletdriver.enable = true;
   fonts = {
