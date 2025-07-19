@@ -1,1 +1,2 @@
-*.dat
+.direnv
+.pre-commit-config.yaml
