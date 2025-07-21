@@ -270,6 +270,7 @@ in
       "obs"
       "vesktop"
       "telegram-desktop"
+      "python"
     ];
     extraModules = [
       inputs.nixos-hardware.nixosModules.common-cpu-amd
