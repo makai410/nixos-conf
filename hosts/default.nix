@@ -279,7 +279,6 @@ in
       }
     ];
     extraHomeModules = [
-      ../apps/kitty/kitty.nix
     ];
   };
   nixos-01 = mkHost {
