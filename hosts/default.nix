@@ -162,9 +162,6 @@ let
     pycharm = {
       home = [ ../apps/pycharm/pycharm.nix ];
     };
-    fastfetch = {
-      home = [ ../apps/fastfetch/fastfetch.nix];
-    };
   };
   mkHost =
     {
@@ -273,7 +270,6 @@ in
       "obs"
       "vesktop"
       "telegram-desktop"
-      "fastfetch"
     ];
     extraModules = [
       inputs.nixos-hardware.nixosModules.common-cpu-amd
