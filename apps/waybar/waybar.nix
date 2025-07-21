@@ -77,8 +77,8 @@
           "interval" = 1;
           "format" = "{:%a %d %b %H:%M:%S}";
           "format-alt" = "{:%H:%M}";
-          "locale" = "fr_FR.UTF-8";
-          "timezone" = "Europe/Paris";
+          "locale" = "zh_CN.UTF-8";
+          "timezone" = "Asia/Shanghai";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           "calendar" = {
             "mode" = "year";
