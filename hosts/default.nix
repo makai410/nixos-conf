@@ -267,7 +267,6 @@ in
       "steam"
       "firefox"
       "chromium"
-      "vscode"
       "obs"
       "vesktop"
       "telegram-desktop"
