@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   programs.kitty = {
     enable = true;
@@ -5,7 +6,7 @@
       scrollback_lines = 10000;
       enable_audio_bell = false;
       update_check_interval = 0;
-      font_size = "18";
+      font_size = "16";
       window_padding_width = "10 10";
       cursor_shape = "block";
       shell_integration = "no-cursor";
@@ -16,5 +17,6 @@
     shellIntegration = {
       enableFishIntegration = true;
     };
+    extraConfig = lib.fileContents ./mocha.conf;
   };
 }
