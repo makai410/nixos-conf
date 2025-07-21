@@ -116,16 +116,11 @@
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    base16 = {
-      # url = "github:SenchoPens/base16.nix?ref=refs/pull/19/head";
-      url = "github:SenchoPens/base16.nix";
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.systems.follows = "systems";
-      inputs.base16.follows = "base16";
       inputs.nur.follows = "nur";
     };
     ucodenix = {
