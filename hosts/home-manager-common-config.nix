@@ -46,6 +46,7 @@
     ripgrep-all
     unzip
     yt-dlp
+    rustup
   ];
 
   home.file.".config/fastfetch/config.jsonc".text = ''
