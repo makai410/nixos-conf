@@ -1,87 +1,190 @@
 {
-  description = "LinuDev Configuration NixOs.";
-
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-
-      imports = [./home/profiles ./hosts ./pkgs];
-
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
-        devShells = {
-          default = pkgs.mkShell {
-            packages = [pkgs.alejandra pkgs.git config.packages.repl];
-            name = "nixland";
-            DIRENV_LOG_FORMAT = "";
-          };
-        };
-        # Nix Formatter
-        formatter = pkgs.alejandra;
-      };
-    };
+  description = "NixOS configuration";
 
   inputs = {
-    # global, so they can be `.follow`ed
-    systems.url = "github:nix-systems/default-linux";
-
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    systems.url = "github:nix-systems/default";
     flake-compat.url = "github:edolstra/flake-compat";
-
+    flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
-
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    # rest of inputs, alphabetical order
-    agenix = {
-      url = "github:ryantm/agenix";
+    gitignore = {
+      url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "hm";
-      inputs.systems.follows = "systems";
     };
-
-    anyrun.url = "github:anyrun-org/anyrun";
-
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
-    hm = {
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.gitignore.follows = "gitignore";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    lanzaboote.url = "github:nix-community/lanzaboote";
-
+    hyprutils = {
+      url = "github:hyprwm/hyprutils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
+    hyprlang = {
+      url = "github:hyprwm/hyprlang";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+      inputs.hyprutils.follows = "hyprutils";
+    };
+    hyprland-qt-support = {
+      url = "github:hyprwm/hyprland-qt-support";
+      inputs.hyprlang.follows = "hyprlang";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
+    hyprland-qtutils = {
+      url = "github:hyprwm/hyprland-qtutils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+      inputs.hyprutils.follows = "hyprutils";
+      inputs.hyprland-qt-support.follows = "hyprland-qt-support";
+      inputs.hyprlang.follows = "hyprlang";
+    };
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      # Do not override Hyprland’s nixpkgs input unless you know what you are doing.
+      # Doing so will make the cache useless, since you’re building from a different Nixpkgs commit.
+      # inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.systems.follows = "systems";
+      inputs.hyprlang.follows = "hyprlang";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+      inputs.hyprland-qtutils.follows = "hyprland-qtutils";
+      inputs.hyprutils.follows = "hyprutils";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace?ref=refs/pull/162/head";
+      inputs.hyprland.follows = "hyprland";
+      inputs.systems.follows = "systems";
+    };
+    iio-hyprland = {
+      url = "github:JeanSchoeller/iio-hyprland";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+      inputs.systems.follows = "hyprland/systems";
+    };
+    hyprgrass = {
+      # url = "github:horriblename/hyprgrass?ref=refs/pull/207/head";
+      url = "github:horriblename/hyprgrass";
+      inputs.hyprland.follows = "hyprland";
+    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+    search = {
+      url = "github:nuschtos/search";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nuschtosSearch.follows = "search";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
+    };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
+    };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    base16 = {
+      # url = "github:SenchoPens/base16.nix?ref=refs/pull/19/head";
+      url = "github:SenchoPens/base16.nix";
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
+      inputs.base16.follows = "base16";
+      inputs.nur.follows = "nur";
+    };
+    ucodenix = {
+      url = "github:e-tho/ucodenix";
+    };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-index-db = {
-      url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
     zen-browser = {
-      url = "github:pfaj/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    cursor = {
+      url = "github:omarcresp/cursor-flake/main";
     };
   };
+
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      systems,
+      treefmt-nix,
+      ...
+    }:
+    let
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      user = "makai";
+
+      # Small tool to iterate over each systems
+      eachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+      # Eval the treefmt modules from ./treefmt.nix
+      treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+    in
+    {
+      # for `nix fmt`
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      # for `nix flake check`
+      checks = eachSystem (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+      });
+      nixosConfigurations = import ./hosts {
+        inherit
+          nixpkgs
+          inputs
+          user
+          ;
+        inherit (nixpkgs) lib;
+      };
+    };
 }
