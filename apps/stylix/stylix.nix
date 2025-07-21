@@ -3,8 +3,8 @@
   stylix.targets = {
     waybar.enable = false;
     tmux.enable = true;
-    fish.enable = true;
-    firefox.enable = true;
+    fish.enable = false;
+    firefox.enable = false;
     firefox.profileNames = [ "${user}" ];
     mangohud.enable = false;
     gnome.enable = true;
