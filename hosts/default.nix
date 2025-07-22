@@ -268,8 +268,6 @@ in
       "firefox"
       "chromium"
       "obs"
-      "vesktop"
-      "telegram-desktop"
       "python"
     ];
     extraModules = [

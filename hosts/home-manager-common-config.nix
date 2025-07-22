@@ -47,6 +47,9 @@
     unzip
     yt-dlp
     rustup
+    vesktop
+    telegram-desktop
+    zulip
   ];
 
   home.file.".config/fastfetch/config.jsonc".text = ''
