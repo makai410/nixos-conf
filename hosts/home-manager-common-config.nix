@@ -73,8 +73,8 @@
     "logo": {
         "source": "nixos_small",
         "padding": {
-            "top": 6,
-            "right": 6
+            "top": 3,
+            "right": 3
         }
     },
     "display": {
