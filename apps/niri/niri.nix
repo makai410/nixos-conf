@@ -351,7 +351,7 @@
         "Mod+Z".action.spawn = "firefox";
         "Mod+D".action.spawn = "supersonic";
         "Mod+N".action.spawn = "keepassxc";
-        "Mod+T".action.spawn = "soffice";
+        "Mod+T".action.spawn = "vscode";
         "Mod+Shift+T".action.spawn = "gnome-system-monitor";
         "Mod+Shift+C".action.spawn = [
           "hyprlock"
