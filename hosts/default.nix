@@ -6,6 +6,11 @@
 }:
 let
   moduleProfiles = {
+    input = {
+      system = [
+        ../modules/input.nix
+      ];
+    };
     laptop = {
       system = [
         ../modules/common/laptop.nix
@@ -263,6 +268,7 @@ in
     stateVersion = "25.05";
     profiles = [
       "bootloader-systemd-boot"
+      "input"
       "niri"
       "steam"
       "firefox"
