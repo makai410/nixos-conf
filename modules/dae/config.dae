@@ -38,6 +38,8 @@ routing {
 
   pname(clash) -> must_direct
   pname(clash-verge) -> must_direct
+  pname(verge-mihomo) -> must_direct
+  pname(clash-verge-rev) -> must_direct
   pname(clash-meta) -> must_direct
   pname(mihomo) -> must_direct
   pname(qemu-system-x86) -> must_direct
