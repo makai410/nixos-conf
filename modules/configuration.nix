@@ -18,7 +18,6 @@
   # Enable networking
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "iwd";
   };
   networking.firewall.enable = lib.mkDefault false;
   services.resolved.enable = true;

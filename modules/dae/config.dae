@@ -15,8 +15,13 @@ dns {
   }
   routing {
     request {
-      qname(geosite:cn) -> alidns
-      fallback: googledns
+      qtype(https) -> reject
+      fallback: alidns
+    }
+    response {
+      upstream(googledns) -> accept
+      ip(geoip:private) && !qname(geosite:cn) -> googledns
+      fallback: accept
     }
   }
 }
@@ -29,8 +34,10 @@ group {
 routing {
   pname(NetworkManager) -> direct
   dip(224.0.0.0/3, 'ff00::/8') -> direct
+  dip(119.29.29.29) -> must_direct
 
   pname(clash) -> must_direct
+  pname(clash-verge) -> must_direct
   pname(clash-meta) -> must_direct
   pname(mihomo) -> must_direct
   pname(qemu-system-x86) -> must_direct
@@ -44,10 +51,7 @@ routing {
 
   dport(22) -> direct
 
-  l4proto(udp) && dport(443) -> block
   dip(geoip:private) -> direct
-  dip(geoip:cn) -> direct
-  domain(geosite:cn) -> direct
 
   fallback: clash
 }
