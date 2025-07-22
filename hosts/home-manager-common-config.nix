@@ -71,9 +71,9 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "source": "~/.local/share/fastfetch/ascii/cat.txt",
+        "source": "nixos_small",
         "padding": {
-            "top": 2,
+            "top": 6,
             "right": 6
         }
     },
