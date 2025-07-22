@@ -8,6 +8,7 @@
     shotcut
     vscode
     clash-verge-rev
+    mihomo
     # xfce.thunar
     # xfce.tumbler
   ];

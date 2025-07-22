@@ -8,7 +8,12 @@ let
   moduleProfiles = {
     input = {
       system = [
-        ../modules/input.nix
+        ../modules/input/input.nix
+      ];
+    };
+    dae = {
+      system = [
+        ../modules/dae/dae.nix
       ];
     };
     laptop = {
@@ -269,6 +274,7 @@ in
     profiles = [
       "bootloader-systemd-boot"
       "input"
+      "dae"
       "niri"
       "steam"
       "firefox"
