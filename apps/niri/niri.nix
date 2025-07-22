@@ -341,7 +341,7 @@
         "Mod+Equal".action.set-column-width = "+10%";
         "Mod+Shift+Minus".action.set-window-height = "-10%";
         "Mod+Shift+Equal".action.set-window-height = "+10%";
-        "Shift+Print".action.screenshot = { };
+        "Mod+Shift+A".action.screenshot = { };
         "Print".action.screenshot-screen = { };
         "Mod+E".action.spawn = [
           "bash"
