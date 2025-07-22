@@ -7,6 +7,7 @@
     nautilus
     shotcut
     vscode
+    clash-verge-rev
     # xfce.thunar
     # xfce.tumbler
   ];
