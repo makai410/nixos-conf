@@ -144,6 +144,9 @@
     cursor = {
       url = "github:omarcresp/cursor-flake/main";
     };
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+    };
   };
 
   outputs =

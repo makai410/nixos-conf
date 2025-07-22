@@ -348,6 +348,7 @@
           "-c"
           "tofi-run | xargs niri msg action spawn --"
         ];
+        "Mod+Space".action.spawn = "${pkgs.anyrun}/bin/anyrun";
         "Mod+Z".action.spawn = "firefox";
         "Mod+D".action.spawn = "supersonic";
         "Mod+N".action.spawn = "keepassxc";

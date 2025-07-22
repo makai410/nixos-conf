@@ -59,8 +59,9 @@ let
         ../apps/hyprlock/hyprlock.nix
         ../apps/hypridle/hypridle.nix
         ../apps/autoscreen/autoscreen.nix
-        ../apps/waybar/waybar.nix
         ../apps/tofi/tofi.nix
+        ../apps/anyrun/anyrun.nix
+        ../apps/waybar/waybar.nix
         ../apps/mako/mako.nix
         ../apps/gammastep/gammastep.nix
       ];
