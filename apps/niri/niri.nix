@@ -23,7 +23,7 @@
         "DISPLAY" = ":0";
       };
       input = {
-        mod-key = "Alt";
+        mod-key = "Super";
         keyboard = {
           repeat-delay = 200;
           repeat-rate = 60;
