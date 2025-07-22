@@ -47,9 +47,16 @@
     unzip
     yt-dlp
     rustup
-    vesktop
     telegram-desktop
     zulip
+    (symlinkJoin {
+      name = "vesktop";
+      paths = [ vesktop ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/vesktop --add-flags "--wayland-text-input-version=3"
+      '';
+    })
   ];
 
   home.file.".config/fastfetch/config.jsonc".text = ''
