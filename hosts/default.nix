@@ -173,6 +173,9 @@ let
     pycharm = {
       home = [ ../apps/pycharm/pycharm.nix ];
     };
+    zen-browser = {
+      home = [ ../apps/zen-browser/zen-browser.nix ];
+    };
   };
   mkHost =
     {
@@ -279,6 +282,7 @@ in
       "niri"
       "steam"
       "firefox"
+      "zen-browser"
       "chromium"
       "obs"
       "python"

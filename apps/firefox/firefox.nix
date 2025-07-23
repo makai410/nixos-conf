@@ -145,7 +145,7 @@
         "browser.download.manager.addToRecentDocs" = false;
         "browser.download.open_pdf_attachments_inline" = true;
         "browser.download.panel.shown" = true;
-        "browser.download.useDownloadDir" = false;
+        "browser.download.useDownloadDir" = true;
         "browser.download.viewableInternally.typeWasRegistered.svg" = true;
         "browser.download.viewableInternally.typeWasRegistered.webp" = true;
         "browser.download.viewableInternally.typeWasRegistered.xml" = true;
@@ -248,8 +248,8 @@
         "privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts" = false;
         "privacy.sanitize.sanitizeOnShutdown" = true;
         "privacy.spoof_english" = 2;
-        "privacy.trackingprotection.enabled" = true;
-        "privacy.trackingprotection.socialtracking.enabled" = true;
+        "privacy.trackingprotection.enabled" = false;
+        "privacy.trackingprotection.socialtracking.enabled" = false;
         "privacy.userContext.enabled" = true;
         "privacy.userContext.extension" = "@testpilot-containers";
         "privacy.userContext.ui.enabled" = true;
