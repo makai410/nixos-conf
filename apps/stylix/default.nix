@@ -36,9 +36,9 @@ in
         package = pkgs.overpass;
         name = "Overpass";
       };
-      monospace = {
-        package = pkgs.nerd-fonts.iosevka;
-        name = "Iosevka Nerd Font Mono";
+      monospace = { 
+        package = pkgs.nerd-fonts.inconsolata;
+        name = "Inconsolata Font Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
