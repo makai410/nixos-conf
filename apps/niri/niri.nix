@@ -18,6 +18,10 @@
     enable = true;
     package = pkgs.niri-unstable;
     settings = {
+      # for asahi
+      debug = {
+        render-drm-device = "/dev/dri/renderD128";
+      };
       environment = {
         "NIXOS_OZONE_WL" = "1";
         "DISPLAY" = ":0";
