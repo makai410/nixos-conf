@@ -191,6 +191,7 @@ let
       extraModules ? [ ],
       extraHomeModules ? [ ],
       homeConfig ? ../hosts/${hostName}/home.nix,
+      baseConfig ? ../modules/configuration.nix,
     }:
     let
       # Extract system modules from profiles
@@ -223,6 +224,7 @@ let
       };
       modules =
         [
+          baseConfig
           ../modules/overlays.nix
           ../modules/cachix/cachix.nix
           inputs.stylix.nixosModules.stylix
@@ -292,8 +294,6 @@ in
       "python"
     ];
     extraModules = [
-      ../modules/configuration.nix
-
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-gpu-amd
       {
@@ -321,8 +321,6 @@ in
     ];
     extraModules = [
       inputs.apple-silicon.nixosModules.apple-silicon-support
-      ../modules/asahi-configuration.nix
-
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-gpu-amd
       {
@@ -331,5 +329,6 @@ in
     ];
     extraHomeModules = [
     ];
+    baseConfig = ../modules/asahi-configuration.nix;
   };
 }
