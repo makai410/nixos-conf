@@ -11,8 +11,6 @@
   ...
 }:
 {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "${hostName}";
 
   # Enable networking
@@ -43,9 +41,17 @@
   # Configure console keymap
   console.keyMap = "us-acentos";
 
-  hardware.graphics = {
+  # enable GPU support
+  hardware.asahi.useExperimentalGPUDriver = true;
+
+  # backlight control
+  programs.light.enable = true;  
+  services.actkbd = {
     enable = true;
-    enable32Bit = true;
+    bindings = [
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+    ];
   };
 
   # Enable sound with pipewire.
@@ -94,7 +100,8 @@
     allowUnfree = true;
     chromium.enableWideVine = true;
   };
-  nixpkgs.overlays = [ inputs.nur.overlays.default ];
+
+  nixpkgs.overlays = [ inputs.apple-silicon.overlays.apple-silicon-overlay ];
 
   environment.systemPackages = with pkgs; [
     killall

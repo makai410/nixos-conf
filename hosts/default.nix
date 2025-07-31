@@ -223,7 +223,6 @@ let
       };
       modules =
         [
-          ../modules/configuration.nix
           ../modules/overlays.nix
           ../modules/cachix/cachix.nix
           inputs.stylix.nixosModules.stylix
@@ -293,6 +292,8 @@ in
       "python"
     ];
     extraModules = [
+      ../modules/configuration.nix
+
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-gpu-amd
       {
@@ -306,6 +307,7 @@ in
   asahi-m2 = mkHost {
     hostName = "asahi-m2";
     stateVersion = "25.11";
+    system = "aarch64-linux";
     profiles = [
       "bootloader-systemd-boot-asahi"
       "input"
@@ -319,7 +321,7 @@ in
     ];
     extraModules = [
       inputs.apple-silicon.nixosModules.apple-silicon-support
-      ../modules/asahi/asahi.nix
+      ../modules/asahi-configuration.nix
 
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-gpu-amd
@@ -328,18 +330,6 @@ in
       }
     ];
     extraHomeModules = [
-    ];
-  };
-
-  nixos-01 = mkHost {
-    hostName = "nixos-01";
-    stateVersion = "25.05";
-    profiles = [
-      "bootloader-grub"
-      "docker"
-    ];
-    extraModules = [
-      ../hosts/nixos-01/default.nix
     ];
   };
 }
