@@ -311,7 +311,6 @@ in
     profiles = [
       "bootloader-systemd-boot-asahi"
       "input"
-      "dae"
       "niri"
       "zen-browser"
       "chromium"
