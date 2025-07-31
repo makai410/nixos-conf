@@ -319,8 +319,6 @@ in
     ];
     extraModules = [
       inputs.apple-silicon.nixosModules.apple-silicon-support
-      inputs.nixos-hardware.nixosModules.common-cpu-amd
-      inputs.nixos-hardware.nixosModules.common-gpu-amd
       {
         my.stylix.wallpaper = "warma-moon";
       }
