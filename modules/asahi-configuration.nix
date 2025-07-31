@@ -48,7 +48,7 @@
   hardware.graphics.enable32Bit = lib.mkForce false;
 
   # Specify path to peripheral firmware files.
-  hardware.asahi.peripheralFirmwareDirectory = builtins.readDir ./firmware;
+  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
   # backlight control
   programs.light.enable = true;  
