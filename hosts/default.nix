@@ -2,7 +2,6 @@
   lib,
   inputs,
   user,
-  apple-silicon,
   ...
 }:
 let
@@ -319,7 +318,7 @@ in
       "python"
     ];
     systemModules = [
-      apple-silicon.nixosModules.apple-silicon-support
+      inputs.apple-silicon.nixosModules.apple-silicon-support
       "../modules/asahi/asahi.nix"
     ];
     extraModules = [
