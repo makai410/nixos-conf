@@ -44,6 +44,9 @@
   # enable GPU support
   hardware.asahi.useExperimentalGPUDriver = true;
 
+  # We should set it to false manually.
+  hardware.graphics.enable32Bit = false;
+
   # Specify path to peripheral firmware files.
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
