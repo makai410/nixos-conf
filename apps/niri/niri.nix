@@ -17,6 +17,9 @@
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
+    debug = {
+        render-drm-device = "/dev/dri/renderD128";
+    };
     settings = {
       # for asahi
       debug = {
