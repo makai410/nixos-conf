@@ -20,7 +20,7 @@
     settings = {
       # for asahi
       debug = {
-        render-drm-device = "/dev/dri/renderD128";
+        render-drm-device = "/dev/dri/card0";
       };
       environment = {
         "NIXOS_OZONE_WL" = "1";
