@@ -319,7 +319,7 @@ in
     ];
     extraModules = [
       inputs.apple-silicon.nixosModules.apple-silicon-support
-      "../modules/asahi/asahi.nix"
+      ../modules/asahi/asahi.nix
 
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-gpu-amd
