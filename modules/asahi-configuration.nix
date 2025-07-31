@@ -45,7 +45,7 @@
   hardware.asahi.useExperimentalGPUDriver = true;
 
   # We should set it to false manually.
-  hardware.graphics.enable32Bit = false;
+  hardware.graphics.enable32Bit = lib.mkForce false;
 
   # Specify path to peripheral firmware files.
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
