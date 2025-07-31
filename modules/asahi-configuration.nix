@@ -44,6 +44,9 @@
   # enable GPU support
   hardware.asahi.useExperimentalGPUDriver = true;
 
+  # Specify path to peripheral firmware files.
+  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+
   # backlight control
   programs.light.enable = true;  
   services.actkbd = {
