@@ -303,7 +303,7 @@ in
     ];
   };
 
-  mba-m2 = mkHost {
+  asahi-m2 = mkHost {
     hostName = "asahi-m2";
     stateVersion = "25.11";
     profiles = [
