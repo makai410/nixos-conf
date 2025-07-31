@@ -35,6 +35,11 @@ let
         ../modules/common/bootloader-systemd-boot.nix
       ];
     };
+    bootloader-systemd-boot-asahi = {
+      system = [
+        ../modules/common/bootloader-systemd-boot-asahi.nix
+      ];
+    };
     bootloader-grub = {
       system = [
         ../modules/common/bootloader-grub-uefi.nix
@@ -281,7 +286,7 @@ in
       "dae"
       "niri"
       "steam"
-      "firefox"
+      # "firefox"
       "zen-browser"
       "chromium"
       "obs"
@@ -297,6 +302,36 @@ in
     extraHomeModules = [
     ];
   };
+
+  mba-m2 = mkHost {
+    hostName = "asahi-m2";
+    stateVersion = "25.11";
+    profiles = [
+      "bootloader-systemd-boot-asahi"
+      "input"
+      "dae"
+      "niri"
+      "steam"
+      "zen-browser"
+      "chromium"
+      "obs"
+      "python"
+    ];
+    systemModules = [
+      apple-silicon.nixosModules.apple-silicon-support
+      "../modules/asahi/asahi.nix"
+    ];
+    extraModules = [
+      inputs.nixos-hardware.nixosModules.common-cpu-amd
+      inputs.nixos-hardware.nixosModules.common-gpu-amd
+      {
+        my.stylix.wallpaper = "warma-moon";
+      }
+    ];
+    extraHomeModules = [
+    ];
+  };
+
   nixos-01 = mkHost {
     hostName = "nixos-01";
     stateVersion = "25.05";
