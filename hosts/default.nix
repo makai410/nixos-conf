@@ -2,6 +2,7 @@
   lib,
   inputs,
   user,
+  apple-silicon,
   ...
 }:
 let
