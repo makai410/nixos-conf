@@ -313,10 +313,8 @@ in
       "input"
       "dae"
       "niri"
-      "steam"
       "zen-browser"
       "chromium"
-      "obs"
       "python"
     ];
     extraModules = [
