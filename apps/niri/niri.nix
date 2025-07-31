@@ -343,13 +343,13 @@
         "Mod+Shift+Equal".action.set-window-height = "+10%";
         "Mod+Shift+A".action.screenshot = { };
         "Print".action.screenshot-screen = { };
-        "Mod+E".action.spawn = [
-          "bash"
-          "-c"
-          "tofi-run | xargs niri msg action spawn --"
-        ];
+        # "Mod+E".action.spawn = [
+        #   "bash"
+        #   "-c"
+        #   "tofi-run | xargs niri msg action spawn --"
+        # ];
         "Mod+Space".action.spawn = "${pkgs.anyrun}/bin/anyrun";
-        "Mod+Z".action.spawn = "firefox";
+        "Mod+Z".action.spawn = "zen-browser";
         "Mod+D".action.spawn = "supersonic";
         "Mod+N".action.spawn = "keepassxc";
         "Mod+T".action.spawn = "vscode";
