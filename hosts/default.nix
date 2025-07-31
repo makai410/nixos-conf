@@ -317,11 +317,10 @@ in
       "obs"
       "python"
     ];
-    systemModules = [
+    extraModules = [
       inputs.apple-silicon.nixosModules.apple-silicon-support
       "../modules/asahi/asahi.nix"
-    ];
-    extraModules = [
+
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-gpu-amd
       {
