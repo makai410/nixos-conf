@@ -148,7 +148,7 @@
       url = "github:anyrun-org/anyrun";
     };
     apple-silicon = {
-      url = "github:makai410/nixos-apple-silicon";
+      url = "github:nix-community/nixos-apple-silicon";
 
       # this line prevents me from fetching two versions of nixpkgs:
       inputs.nixpkgs.follows = "nixpkgs";
