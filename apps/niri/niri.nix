@@ -20,7 +20,7 @@
     settings = {
       # for asahi
       debug = {
-        render-drm-device = "/dev/dri/card0";
+        render-drm-device = "/dev/dri/renderD128";
       };
       environment = {
         "NIXOS_OZONE_WL" = "1";
@@ -58,6 +58,9 @@
       outputs = {
         # niri msg outputs
         eDP-1 = {
+          scale = 1.25;
+        };
+        eHDMI-1 = {
           scale = 1.25;
         };
         "PNP(SAC) G72 MAX 0000000000000" = {
